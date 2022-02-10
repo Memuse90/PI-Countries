@@ -9,7 +9,7 @@ module.exports = (sequelize) => {
         },
         dificulty: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 min: 1,
                 max: 5

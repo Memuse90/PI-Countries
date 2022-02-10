@@ -30,10 +30,10 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING
     },
     area: {
-      type: DataTypes.BIGINT
+      type: DataTypes.INTEGER
     },
     population: {
-      type: DataTypes.BIGINT
+      type: DataTypes.INTEGER
     } 
 
   });
