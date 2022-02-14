@@ -72,7 +72,7 @@ const getCountriesByCode = async (req, res, next) => {
 
 const getCountriesByName = async (req, res, next) => {
     try{
-        let name = req.query.name;
+        let name = req.query.name.toLowerCase();
         
         if (name){
             const apiInfo = await axios.get(`https://restcountries.com/v3/name/${name}`);
@@ -88,7 +88,11 @@ const getCountriesByName = async (req, res, next) => {
                     population: c.population
                 }
             })
+        if(countries.length >0){    
             res.json(countries);
+        } else {
+            res.send('No existen coincidencias.')
+        }
         } else {
             res.send('No query')
         }
@@ -96,10 +100,24 @@ const getCountriesByName = async (req, res, next) => {
         next(e); 
     }
 };
+const getCountriesNames = async (req, res, next) => {
+    try{
+        let countries = await Country.findAll();
+
+        let countriesNames = countries.map( c => c.name).sort();
+
+        
+        res.json(countriesNames);
+        
+    } catch (e) {
+        next (e)
+    }
+};
 
 
 module.exports = {
     getAllCountries,
     getCountriesByCode,
-    getCountriesByName 
+    getCountriesByName,
+    getCountriesNames 
 }

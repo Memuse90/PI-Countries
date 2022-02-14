@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getCountryById } from "../../redux/actions";
 import ActivityCard from "../Cards/ActivityCard";
+
 export default function Detail (props){
     const id = props.match.params.id;
     
@@ -12,7 +13,6 @@ export default function Detail (props){
 
     const country = useSelector(state => state.country);
 
-    const activities = useSelector(state => state.activities);
 
     return (
         <div>
@@ -31,7 +31,7 @@ export default function Detail (props){
             </div>
             <div>
                 <ul>
-                {activities?.map((a) =>{
+                {country.activities?.map((a) =>{
                     return <ActivityCard
                                 key={a.id}
                                 name={a.name}

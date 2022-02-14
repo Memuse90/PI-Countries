@@ -1,14 +1,15 @@
 import React from "react";
 
 
-export default function Alphabetical (props) {
+export default function Alphabetical ({handleAlphaSort}) {
 
 
     return(
         <div>
-            <select>
+            <select defaultValue={'none'} onChange={(e) => handleAlphaSort(e.target.value)} >
+                <option value={'none'}>None</option>
+                <option value={'asc'}>Ascendent</option>
                 <option value={'desc'}>Descendent</option>
-                <option value= {'asc'}>Ascendent</option>
             </select>
         </div>    
     )

@@ -1,13 +1,15 @@
 import React, {useState}from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCountries } from "../../redux/actions";
+import { getAllCountries, filterByActivity, filterByContinent, getCountriesByName, sortAlphabetically, sortByPopulation } from "../../redux/actions";
 import {CountryCard} from '../Cards/CountryCard';
 import ByActivity from "../Filters/ByActivity";
+import ByContinent from "../Filters/ByContinent";
 import Nav from '../Nav/Nav';
 import Pagefile from "../Pagefile/Pagefile";
 import Alphabetical from '../Sorts/Alphabetical';
 import Population from "../Sorts/Population";
+import Hm from './Home.module.css';
 
 export default function Home () {
 
@@ -37,19 +39,46 @@ export default function Home () {
         } else {
             return setCountriesPerPage (10);
         }
-    })
+    });
+    const handleFilterByActivity = (e) => {
+        dispatch(filterByActivity(e))
+    };
+    const handleFilterByContinent = (e) => {
+        dispatch (filterByContinent(e))
+    };
+    const handleSearch = (name) => {
+        dispatch (getCountriesByName(name))
+    };
+    const handleAlphaSort = (e) => {
+        dispatch(sortAlphabetically(e))
+    };
+    const handlePopSort = (e) => {
+        dispatch (sortByPopulation(e));
+    };
 
     return (
         <>
              <div>
-                <Nav/>
+                <Nav handleSearch={handleSearch}/>
             </div>  
-            <div className="sorts">
-               <h5>Order alphabetically </h5> <Alphabetical/>
-               <h5>Sort by population </h5> <Population/>
+            <div className={Hm.sorts}>
+               <div className={Hm.sSorts}>
+               <label>Order alphabetically </label> 
+               <Alphabetical handleAlphaSort={handleAlphaSort}/>
+               </div>
+               <div className={Hm.sSorts}>
+               <label>Sort by population </label> 
+               <Population handlePopSort={handlePopSort}/>
+               </div>
             </div>
-            <div>
-                <h6>Filter by tourist activity </h6><ByActivity/> 
+            <div className={Hm.filters}>
+                <label>Filter by tourist activity </label>
+                <ByActivity 
+                handleFilterByActivity={handleFilterByActivity}/> 
+            </div>
+            <div className={Hm.filters}>
+                <label>Filter by continent</label>
+                <ByContinent handleFilterByContinent={handleFilterByContinent}/>
             </div>
             <Pagefile
                     countriesPerPage={countriesPerPage}
@@ -57,7 +86,7 @@ export default function Home () {
                     paginado={paginado}
                     pageController = {pageController} 
                 />   
-            <div className="cards">
+            <div className={Hm.cards}>
                 {currentCountries?.map( (c) => {
                    return <CountryCard
                         key={c.id}    

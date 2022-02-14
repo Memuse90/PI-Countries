@@ -1,13 +1,14 @@
 import React from "react";
 
-export default function Population (props){
+export default function Population ({handlePopSort}){
 
     return(
         <div>
-            <select>
-                <option value={'ascendent'}>Ascendent</option>
-                <option value={'descendent'}>Descendent</option>
+            <select onChange={(e)=> handlePopSort(e.target.value)}>
+                <option value={'none'}>None</option>
+                <option value={'asc'}>Ascendent</option>
+                <option value={'desc'}>Descendent</option>
             </select>    
         </div>
     )
-}
+};

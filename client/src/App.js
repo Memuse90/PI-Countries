@@ -4,7 +4,8 @@ import './App.css';
 import LandingPage from './components/LandingPage/LandingPage.jsx';
 import Home from './components/Home/Home.jsx';
 import Detail from './components/Detail/Detail.jsx';
-import Nav from './components/Nav/Nav';
+import CreateActivity from './components/CreateActivity/CreateActivity';
+
 function App() {
   return (
     <>
@@ -17,9 +18,7 @@ function App() {
           <Home/>
         </Route>
         <Route exact path={`/detail/:id`} component={Detail} />
-            {/* <Nav/>
-            <Detail/>
-          </Route> */}
+        <Route path={'/create'} component={CreateActivity}/>
       </Switch>
       </div>
     </>

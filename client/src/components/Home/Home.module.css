@@ -1,4 +1,22 @@
 .cards{
-    display: flex,
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center ;
+
     
+}
+
+.sorts{
+    display: flex;
+    justify-content:space-around;
+    flex-direction: row;
+}
+
+.sSorts{
+    display: flex;
+    flex-direction: row;
+}
+
+.filters {
+
 }
