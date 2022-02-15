@@ -22,7 +22,7 @@ export default function Nav ({handleSearch}){
                         <NavLink className={Nv.NavLink}to={'/home'}>Home</NavLink>
                         <NavLink className={Nv.NavLink} to={'/create'}>Create Activity</NavLink>
                     </div>
-                    <div>
+                    <div className={Nv.search}>
                         <label>Search Country</label>
                         <input type={'search'} autoComplete={'country-name'} onChange={(e) => handleChange(e)} />
                         <input type={'button'} onClick={(e) => handleClick(e) } value={'Search'}/>

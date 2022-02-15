@@ -12,7 +12,7 @@ export default function Pagefile ({countriesPerPage, allCountries, paginado, pag
     return(
         <div>
             <nav>
-                <ul  className={Pf.numbers}>
+                <ul  className={Pf.numbers}  >
                     {pageNumbers?.map(
                         number => {return(
                             <li key={number} className= {Pf.number}>

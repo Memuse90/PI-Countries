@@ -5,7 +5,7 @@ const createActivity = async (req, res, next) => {
     try{
         const {name, dificulty, duration, season, countries} = req.body;
         
-        if(name && countries.length > 0){
+        if(name){
             const [newActivity, created] = await Activity.findOrCreate({
                where: {
                 name: name,
@@ -14,17 +14,19 @@ const createActivity = async (req, res, next) => {
                 season: season
             }
             });
-            const relatedCountries = [];
-            for (const country of countries ){
-                let asociatedCountry = await Country.findOne({
-                    where:{
-                        name: country
-                    }});
-                relatedCountries.push(asociatedCountry.dataValues.id);
-  
+            if (countries.length > 0){
+                const relatedCountries = [];
+                for (const country of countries ){
+                    const asociatedCountry = await Country.findOne({
+                        where:{
+                            name: country
+                        }});
+    
+                    relatedCountries.push(asociatedCountry.dataValues.id);
+    
+                };
+                await newActivity.addCountries(relatedCountries);
             };
-            await newActivity.addCountries(relatedCountries);
-
             const activity = await Activity.findOne({where: {
                 name: name
             }, include: Country});
