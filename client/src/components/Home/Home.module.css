@@ -1,3 +1,7 @@
+.nav{
+    width: 100%;
+}
+
 .cards{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -10,13 +14,18 @@
     display: flex;
     justify-content:space-around;
     flex-direction: row;
+    background-color: #678983;
+    justify-content: space-evenly;
 }
 
 .sSorts{
     display: flex;
     flex-direction: row;
+    
 }
 
 .filters {
-
+    display: flex;
+    background-color: #678983;
 }
+

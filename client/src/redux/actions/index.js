@@ -1,3 +1,4 @@
+const axios= require ('axios');
 export const GET_ALL_COUNTRIES = 'GET_ALL_COUNTRIES';
 export const GET_COUNTRIES_BY_NAME = 'GET_COUNTRIES_BY_NAME';
 export const GET_COUNTRY_BY_CODE = 'GET_COUNTRY_BY_CODE';
@@ -78,17 +79,18 @@ export const sortByPopulation = (order)=>async dispatch => {
         })); 
 
 }
-export const createActivity = (info) => async dispatch => {
-    return await fetch('http://localhost:3001/activity', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(info)
-    })
-        .then(response => response.json())
-        .then(data => {
-            return {
-                type: CREATE_ACTIVITY,
-                payload: data
-            }
-        });
+export function createActivity (info) {
+    return async function (dispatch){
+        console.log(info);
+        const response = await axios.post('http://localhost:3001/activity', info);
+
+        console.log(response)
+
+        return dispatch ({
+            type: CREATE_ACTIVITY,
+            payload: response.data
+        })
+        
+    }
+    
 }

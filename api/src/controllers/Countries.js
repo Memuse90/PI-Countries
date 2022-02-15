@@ -1,5 +1,5 @@
 const axios = require ('axios');
-const {Sequelize} = require ('sequelize');
+const {Op, Sequelize} = require ('sequelize');
 const {Country, Activity} = require('../db.js');
 
 
@@ -75,19 +75,24 @@ const getCountriesByName = async (req, res, next) => {
         let name = req.query.name.toLowerCase();
         
         if (name){
-            const apiInfo = await axios.get(`https://restcountries.com/v3/name/${name}`);
-            const countries = await apiInfo.data.map(c => {
-                return {
-                    id: c.cca3,
-                    name: c.name.common,
-                    flag: c.flags[1],
-                    continent: c.region,
-                    capital: c.capital? c.capital[0] : 'Not found',
-                    subregion: c.subregion,
-                    area: c.area,
-                    population: c.population
+            const countries = await Country.findAll({ where: {
+                name:{
+                    [Op.match]: Sequelize.fn('to_tsquery', name)
                 }
-            })
+            }});
+            console.log(countries);
+            // const countries = await apiInfo.data.map(c => {
+            //     return {
+            //         id: c.cca3,
+            //         name: c.name.common,
+            //         flag: c.flags[1],
+            //         continent: c.region,
+            //         capital: c.capital? c.capital[0] : 'Not found',
+            //         subregion: c.subregion,
+            //         area: c.area,
+            //         population: c.population
+            //     }
+            // })
         if(countries.length >0){    
             res.json(countries);
         } else {

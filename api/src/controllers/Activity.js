@@ -29,9 +29,9 @@ const createActivity = async (req, res, next) => {
                 name: name
             }, include: Country});
 
-            res.json(activity);
+            res.json({success: 'Created successfully'});
         } else {
-            res.send('Refill the form.');
+            res.send({error:'Refill the form.'});
         }
     } catch (e) {
         next(e);

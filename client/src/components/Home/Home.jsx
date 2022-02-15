@@ -47,7 +47,11 @@ export default function Home () {
         dispatch (filterByContinent(e))
     };
     const handleSearch = (name) => {
+        if (name !== ''){
         dispatch (getCountriesByName(name))
+        } else {
+            dispatch (getAllCountries());
+        }
     };
     const handleAlphaSort = (e) => {
         dispatch(sortAlphabetically(e))
@@ -58,7 +62,7 @@ export default function Home () {
 
     return (
         <>
-             <div>
+             <div className={Hm.nav}>
                 <Nav handleSearch={handleSearch}/>
             </div>  
             <div className={Hm.sorts}>

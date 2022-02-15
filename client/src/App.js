@@ -1,15 +1,15 @@
 import React from 'react';
 import {Route, Switch } from 'react-router-dom';
-import './App.css';
+import './App.module.css';
 import LandingPage from './components/LandingPage/LandingPage.jsx';
 import Home from './components/Home/Home.jsx';
 import Detail from './components/Detail/Detail.jsx';
 import CreateActivity from './components/CreateActivity/CreateActivity';
-
+import sty from './App.module.css';
 function App() {
   return (
     <>
-      <div className='App'>
+      <div className={sty.App}>
       <Switch>
         <Route exact path={'/'}>
           <LandingPage/>
