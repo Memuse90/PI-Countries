@@ -12,32 +12,35 @@ export default function CreateActivity () {
 
     const response = useSelector (state => state.newActivity);
 
-    React.useEffect( () => dispatch (getCountriesNames()), [dispatch])
+    React.useEffect( () => dispatch (getCountriesNames()), [dispatch]);
+    
     const [input, setInput] = React.useState({
         name:'',
         dificulty: 0,
         duration: 0,
         season: ''
     });
-
+    
     const [error, setError] = React.useState("");
 
     const [country, setCountry] = useState('');
     
     const [countries, setCountries] = useState([]); 
 
-    
-
-       
 
 
     const handleSelect = (e) => {
-        setCountry(e.target.value);
         let ban= countries.includes(country);
+        const allCountries = countries;
         if (country !== '' && ban === false){
-            setCountries([...countries, country]);
+            setCountries([...allCountries, country]);
         }
+        console.log(e.target.value)
     };
+    function completeCountry (e){
+        setCountry (e.target.value);
+
+    }
 
     function handleDelete (e){
         let newCountries= countries.filter(c => c !== e.target.id)
@@ -105,13 +108,15 @@ export default function CreateActivity () {
                 </div>
                     <label>Countries:</label>
                <div> 
-                   <select id={'countries'} onChange={(e) => handleSelect(e)}>
+                   <input type={'text'} name={'add country'} readOnly value={country}/>
+                   <select id={'countries'} onChange={(e) => completeCountry(e)}>
                     {cNames?.map(n =>{
                         return (
-                            <option  value={n} name={'countries'} key={n}>{n}</option>
+                            <option  value={n} name={n} key={n}>{n}</option>
                         )
                         })}  
                     </select>  
+                    <input type={'button'} value={'Add country'} onClick ={(e) => handleSelect(e)}/>
                 </div>
                 {countries.length>0 && countries.map(c =>
                     <div key={c}>
