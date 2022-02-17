@@ -7,7 +7,7 @@ export class CountryCard extends Component {
 
         return(
             <div className={Cd.card}>
-                <Link to={`/detail/${this.props.id}`}><h2>{this.props.name}</h2> </Link>
+                <Link className={Cd.link} to={`/detail/${this.props.id}`}><h2>{this.props.name}</h2> </Link>
                 <h3>{this.props.continent}</h3>
                 <img src={this.props.imageURL} alt='Image not found' width='100px' height='75px'/>
 

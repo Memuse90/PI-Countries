@@ -30,8 +30,11 @@ const createActivity = async (req, res, next) => {
             const activity = await Activity.findOne({where: {
                 name: name
             }, include: Country});
-
-            res.json({success: 'Created successfully'});
+        if(created){    
+            res.json({success: 'Created successfully'})
+        } else {
+            res.json({success: 'The activity alredy exists'})
+    };
         } else {
             res.send({error:'Refill the form.'});
         }

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getCountryById } from "../../redux/actions";
 import ActivityCard from "../Cards/ActivityCard";
+import D from './Detail.module.css'
 
 export default function Detail (props){
     const id = props.match.params.id;
@@ -20,7 +21,7 @@ export default function Detail (props){
             <div>
                 <img src={country.flag} alt= 'Not found'/>
             </div>
-            <div>
+            <div className={D.pri}>
                 <h4>Continent: {country.continent}</h4>
                 <h4>Capital: {country.capital}</h4>
                 <h5>Subregion: {country.subregion}</h5>
@@ -29,7 +30,7 @@ export default function Detail (props){
                 <h5>Area: {country.area} m2</h5>
                 <h5>Population: {country.population}</h5>
             </div>
-            <div>
+            <div className={D.act}>
                 <ul>
                 {country.activities?.map((a) =>{
                     return <ActivityCard

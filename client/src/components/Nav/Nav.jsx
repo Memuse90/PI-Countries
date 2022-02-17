@@ -19,7 +19,7 @@ export default function Nav ({handleSearch}){
             <nav className={Nv.all}>
                 
                     <div className={Nv.links}>
-                        <NavLink className={Nv.NavLink}to={'/home'}>Home</NavLink>
+                        <NavLink className={Nv.NavLink} to={'/'}>Landing</NavLink>
                         <NavLink className={Nv.NavLink} to={'/create'}>Create Activity</NavLink>
                     </div>
                     <div className={Nv.search}>

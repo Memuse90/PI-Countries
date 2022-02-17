@@ -23,7 +23,7 @@ export default function Home () {
 
     const [currentPage, setCurrentPage] = useState(1);
 
-    const [countriesPerPage, setCountriesPerPage] = useState(10);
+    const [countriesPerPage, setCountriesPerPage] = useState(9);
 
     const indexOfLastCountry = currentPage*countriesPerPage;
 
@@ -62,6 +62,7 @@ export default function Home () {
 
     return (
         <>
+        <div className={Hm.all}>
              <div className={Hm.nav}>
                 <Nav handleSearch={handleSearch}/>
             </div>  
@@ -79,17 +80,17 @@ export default function Home () {
                 <label>Filter by tourist activity </label>
                 <ByActivity 
                 handleFilterByActivity={handleFilterByActivity}/> 
-            </div>
-            <div className={Hm.filters}>
                 <label>Filter by continent</label>
                 <ByContinent handleFilterByContinent={handleFilterByContinent}/>
             </div>
+            <div className={Hm.pagefile}>
             <Pagefile
                     countriesPerPage={countriesPerPage}
                     allCountries={allCountries.length}
                     paginado={paginado}
                     pageController = {pageController} 
-                />   
+                />
+            </div>       
             <div className={Hm.cards}>
                 {currentCountries?.map( (c) => {
                    return <CountryCard
@@ -101,10 +102,10 @@ export default function Home () {
                     />
                 })}
             </div>
-            <br/>
+            
             
                
-            
+            </div>
         </>
     )
 };

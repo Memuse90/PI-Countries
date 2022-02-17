@@ -42,7 +42,7 @@ const getAllCountries = async (req, res, next) => {
 const getCountriesByCode = async (req, res, next) => {
     try{
         const id = req.params.id;
-        console.log(id)
+        
         if (id.length === 3){
             const apiInfo = await axios.get(`https://restcountries.com/v3/alpha/${id}`);
 
@@ -80,19 +80,7 @@ const getCountriesByName = async (req, res, next) => {
                     [Op.match]: Sequelize.fn('to_tsquery', name)
                 }
             }});
-            console.log(countries);
-            // const countries = await apiInfo.data.map(c => {
-            //     return {
-            //         id: c.cca3,
-            //         name: c.name.common,
-            //         flag: c.flags[1],
-            //         continent: c.region,
-            //         capital: c.capital? c.capital[0] : 'Not found',
-            //         subregion: c.subregion,
-            //         area: c.area,
-            //         population: c.population
-            //     }
-            // })
+            
         if(countries.length >0){    
             res.json(countries);
         } else {
@@ -105,18 +93,23 @@ const getCountriesByName = async (req, res, next) => {
         next(e); 
     }
 };
-const getCountriesNames = async (req, res, next) => {
-    try{
-        let countries = await Country.findAll();
+const getCountriesNames = (req,res,next) =>{
+    Country.findAll().then((countries) => {
+        let countriesNames= countries.map(c => c.name).sort();
+        res.json(countriesNames)
+    }).catch(error => next(error))
+// const getCountriesNames = async (req, res, next) => {
+//     try{
+//         let countries = await Country.findAll();
 
-        let countriesNames = countries.map( c => c.name).sort();
+//         let countriesNames = countries.map( c => c.name).sort();
 
         
-        res.json(countriesNames);
+//         res.json(countriesNames);
         
-    } catch (e) {
-        next (e)
-    }
+//     } catch (e) {
+//         next (e)
+//     }
 };
 
 

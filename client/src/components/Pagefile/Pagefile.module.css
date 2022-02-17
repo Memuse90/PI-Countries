@@ -6,8 +6,20 @@
 }
 
 .number {
-    display: flex;
     font-size: small;
-    margin: 5px;
+    margin: 3px;
+    color: #e6ddc4;
+}
+
+.snumber{
+    color: #181d31;
     text-decoration: none;
+}
+
+.snumber:hover{
+    color:#e6ddc4
+}
+
+.snumber:active{
+    color: #678983;
 }

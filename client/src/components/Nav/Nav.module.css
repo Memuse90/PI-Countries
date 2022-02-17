@@ -1,4 +1,4 @@
-nav{
+.all{
     display: flex;
     justify-content: space-between;
     background-color: #678983;
@@ -13,6 +13,9 @@ nav{
     font-family: Arial, Helvetica, sans-serif;
     color: #181d31;
     text-decoration: none;
+}
+.NavLink:hover{
+    color: #f0e9d2;
 }
  .search{
      display: flex;

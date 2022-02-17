@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     background-image: url('../img/fondo11.png');
+    background-repeat: repeat-y;
     background-position: center;
     background-size: cover;
     width:auto ;

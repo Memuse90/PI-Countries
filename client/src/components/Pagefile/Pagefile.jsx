@@ -16,7 +16,7 @@ export default function Pagefile ({countriesPerPage, allCountries, paginado, pag
                     {pageNumbers?.map(
                         number => {return(
                             <li key={number} className= {Pf.number}>
-                                <a className="cosito" href="#" onClick={() => {
+                                <a className={Pf.snumber} href="#" onClick={() => {
                                     return paginado(number), pageController(number)}}>{number}</a>
                             </li>
                         )}
