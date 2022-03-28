@@ -72,7 +72,7 @@ const getCountriesByCode = async (req, res, next) => {
 
 const getCountriesByName = async (req, res, next) => {
     try{
-        let name = req.query.name.toLowerCase();
+        let name = req.query.name;
         
         if (name){
             const countries = await Country.findAll({ where: {
@@ -82,12 +82,12 @@ const getCountriesByName = async (req, res, next) => {
             }});
             
         if(countries.length >0){    
-            res.json(countries);
+            res.json({countries: countries, error:''});
         } else {
-            res.send('No existen coincidencias.')
+            res.send({error:'No existen coincidencias.'})
         }
         } else {
-            res.send('No query')
+            res.send({countries: [], error:'No query'})
         }
     } catch(e){
         next(e); 

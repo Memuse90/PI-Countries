@@ -14,6 +14,7 @@
 
 .cards{
     display: grid;
+    gap:initial ;
     grid-template-columns: repeat(4, 1fr);
     justify-content: center;
     align-content: center ;

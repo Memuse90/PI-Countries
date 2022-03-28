@@ -8,7 +8,7 @@ const createActivity = async (req, res, next) => {
         if(name){
             const [newActivity, created] = await Activity.findOrCreate({
                where: {
-                name: name,
+                name:typeof name ==='string' && name,
                 dificulty: dificulty>=1 && dificulty<=5? dificulty : 1 ,
                 duration: duration,
                 season: season
@@ -39,6 +39,7 @@ const createActivity = async (req, res, next) => {
             res.send({error:'Refill the form.'});
         }
     } catch (e) {
+        res.json(e)
         next(e);
     }
     

@@ -1,4 +1,4 @@
-import { CREATE_ACTIVITY, FILTER_BY_ACTIVITY,FILTER_BY_CONTINENT, GET_ALL_COUNTRIES, GET_COUNTRIES_BY_NAME, GET_COUNTRY_BY_CODE, GET_NAMES, SORT_ALPHABETICALLY, SORT_BY_POPULATION } from "../actions";
+import { CLEAN_ERROR, CREATE_ACTIVITY, FILTER_BY_ACTIVITY,FILTER_BY_CONTINENT, GET_ALL_COUNTRIES, GET_COUNTRIES_BY_NAME, GET_COUNTRY_BY_CODE, GET_NAMES, SORT_ALPHABETICALLY, SORT_BY_POPULATION } from "../actions";
 
 const initialState = {
     countries: [],
@@ -6,7 +6,8 @@ const initialState = {
     country: {},
     activities: [],
     countriesNames: [],
-    newActivity: {}
+    newActivity: {},
+    error:''
 }
 
 export default function rootReducer (state = initialState, action) {
@@ -19,10 +20,17 @@ export default function rootReducer (state = initialState, action) {
                 activities: action.payload[1]
             };
         case GET_COUNTRIES_BY_NAME:
+            if(action.payload.countries){
+                return {
+                    ...state,
+                    countries: action.payload.countries
+                }
+            } else{
             return {
                 ...state,
-                countries: action.payload
-            };
+                error: action.payload.error
+
+            }};
         case GET_COUNTRY_BY_CODE:
             return {
                 ...state,
@@ -75,7 +83,12 @@ export default function rootReducer (state = initialState, action) {
             return {
                 ...state,
                 newActivity: action.payload
-            };            
+            };  
+        case CLEAN_ERROR:
+            return {
+                ...state,
+                error: ''
+            }              
         default: return {...state};    
     };
 };

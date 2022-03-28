@@ -8,6 +8,7 @@ export const FILTER_BY_CONTINENT = 'FILTER_BY_CONTINENT';
 export const SORT_ALPHABETICALLY = 'SORT_ALPHABETICALLY';
 export const SORT_BY_POPULATION = 'SORT_BY_POPULATION';
 export const GET_NAMES = 'GET_NAMES';
+export const CLEAN_ERROR= 'CLEAN_ERROR';
 
 export const getAllCountries = () => async dispatch => {
     return await fetch ('http://localhost:3001/countries/')
@@ -28,7 +29,7 @@ export const getCountriesNames = () => async dispatch => {
 }
 
 export const getCountriesByName = (name) => async dispatch => {
-    const countryName = name.toLowerCase();
+    const countryName = name;
     return await fetch (`http://localhost:3001/countries/get?name=${countryName}`)
         .then (response => response.json())
         .then (countries => dispatch ({
@@ -93,4 +94,10 @@ export function createActivity (info) {
         
     }
     
+}
+
+export function cleanError(){
+    return ({
+        type: CLEAN_ERROR
+    })
 }
