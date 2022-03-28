@@ -1,47 +1,82 @@
 .all{
-    background-color: transparent;
+    width: auto;
+    height: 1100px;
+    background-color: whitesmoke;
 }
 
 .nav{
     width: 100%;
 }
+.space{
+    display: flex;
+    justify-content: center;
+    height: 18px;
+    align-items: center;
+    background-color: #203239;
+}
 .pagefile{
     display: flex;
     justify-content: center;
+    height: 25px;
     align-items: center;
-    background-color: transparent;
+    background-color: whitesmoke;
+}
+.body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .cards{
     display: grid;
-    gap:initial ;
     grid-template-columns: repeat(4, 1fr);
-    justify-content: center;
+    justify-content:space-evenly;
     align-content: center ;
-    
+    width: 1100px;
 }
-
-.sorts{
+.sortsandfilters{
     display: flex;
-    justify-content:space-around;
-    flex-direction: row;
+    justify-content: center;
     width: 100%;
     background-color: #f0e9d2;
-    justify-content: space-evenly;
+}
+.sorts{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-content: center;
+    width: auto;
+    height: 50px;
+    
+    background-color: transparent;
+    
 }
 
 .sSorts{
     display: flex;
-    flex-direction: row;
+    width: 200px;
+    height: 40px;
+    align-self: center;
+    flex-direction: column;
+    
+    border-radius: 10px;
+    font-family: 'Times New Roman', Times, serif;
     
 }
 
 .filters {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-content: center ;
     background-color: #f0e9d2;
-    width: 100%;
+    width: 30vw;
+    border-radius: 10px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
+.sfilter{
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+}

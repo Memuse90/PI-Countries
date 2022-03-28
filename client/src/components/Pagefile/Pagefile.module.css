@@ -3,17 +3,29 @@
     justify-content: center;
     flex-direction: row;
     list-style: none;
+    font-size: xx-small;
 }
-
+.btn{
+    background-color: #e6ddc4;
+    border-radius: 10px;
+    width: min-content;
+    height: min-content;
+    font-size: xx-small;
+}
+.btn:hover{
+    color:#e6ddc4
+}
 .number {
-    font-size: small;
+    
     margin: 3px;
     color: #e6ddc4;
 }
 
 .snumber{
     color: #181d31;
+    font-family: 'Times New Roman', Times, serif;
     text-decoration: none;
+    font-size: xx-small;
 }
 
 .snumber:hover{

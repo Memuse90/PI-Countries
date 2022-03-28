@@ -33,13 +33,17 @@ export default function Nav ({handleSearch}){
             <nav className={Nv.all}>
                 
                     <div className={Nv.links}>
+                        <div>
                         <NavLink className={Nv.NavLink} to={'/'}>Landing</NavLink>
+                        </div>
+                        <div>
                         <NavLink className={Nv.NavLink} to={'/create'}>Create Activity</NavLink>
+                        </div>
                     </div>
                     <div className={Nv.search}>
-                        <label>Search Country</label>
-                        <input type={'search'} autoComplete={'country-name'} onChange={(e) => handleChange(e)} />
-                        <input type={'button'} onClick={(e) => handleClick(e) } value={'Search'}/>
+                        <label>Country  </label>
+                        <input className={Nv.inp} type={'search'} autoComplete={'country-name'} onChange={(e) => handleChange(e)} />
+                        <input className={Nv.btn} type={'button'} onClick={(e) => handleClick(e) } value={'Search'}/>
                     </div>
                   
 

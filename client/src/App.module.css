@@ -1,11 +1,9 @@
 .App{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-image: url('../img/fondo11.png');
-    background-repeat: repeat-y;
+    
+    /* background-image: url('../img/pexels-monstera-7412069.jpg'); */
+    
     background-position: center;
     background-size: cover;
     width:auto ;
-    height: 500px;
+    height: 750px;
 }

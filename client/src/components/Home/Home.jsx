@@ -65,47 +65,68 @@ export default function Home () {
         <div className={Hm.all}>
              <div className={Hm.nav}>
                 <Nav handleSearch={handleSearch}/>
-            </div>  
-            <div className={Hm.sorts}>
-               <div className={Hm.sSorts}>
-               <label>Order alphabetically </label> 
-               <Alphabetical handleAlphaSort={handleAlphaSort}/>
-               </div>
-               <div className={Hm.sSorts}>
-               <label>Sort by population </label> 
-               <Population handlePopSort={handlePopSort}/>
-               </div>
             </div>
-            <div className={Hm.filters}>
-                <label>Filter by tourist activity </label>
-                <ByActivity 
-                handleFilterByActivity={handleFilterByActivity}/> 
-                <label>Filter by continent</label>
-                <ByContinent handleFilterByContinent={handleFilterByContinent}/>
+            <div className={Hm.sortsandfilters}>
+            <div className={Hm.sorts}>
+                    <div className={Hm.sSorts}>
+                        <label>Order alphabetically </label> 
+                        <Alphabetical handleAlphaSort={handleAlphaSort}/>
+                    </div>
+                    <div className={Hm.sSorts}>
+                        <label>Sort by population </label> 
+                        <Population handlePopSort={handlePopSort}/>
+                    </div>
+                    <div className={Hm.filters}>
+                        <div className={Hm.sfilter}>
+                            <label>Filter by tourist activity </label>
+                            <ByActivity 
+                            handleFilterByActivity={handleFilterByActivity}/> 
+                        </div>
+                        <div className={Hm.sfilter}>
+                            <label>Filter by continent</label>
+                            <ByContinent handleFilterByContinent={handleFilterByContinent}/>
+                        </div>
+
+                        </div>
+            </div>  
+            </div>
+            <div className={Hm.space}>
+
             </div>
             <div className={Hm.pagefile}>
-            <Pagefile
-                    countriesPerPage={countriesPerPage}
-                    allCountries={allCountries.length}
-                    paginado={paginado}
-                    pageController = {pageController} 
-                />
-            </div>       
-            <div className={Hm.cards}>
-                {currentCountries?.map( (c) => {
-                   return <CountryCard
-                        key={c.id}    
-                        id={c.id}
-                        name={c.name}
-                        continent={c.continent}
-                        imageURL={c.flag}
+                <Pagefile
+                        countriesPerPage={countriesPerPage}
+                        allCountries={allCountries.length}
+                        paginado={paginado}
+                        pageController = {pageController} 
                     />
-                })}
-            </div>
+                </div>
+            <div className={Hm.body}>
             
-            
-               
+                <div>
+                <div className={Hm.cards}>
+                        {currentCountries?.map( (c) => {
+                        return <CountryCard
+                                key={c.id}    
+                                id={c.id}
+                                name={c.name}
+                                continent={c.continent}
+                                imageURL={c.flag}
+                            />
+                        })}
+                </div>
+                <div className={Hm.pagefile}>
+                <Pagefile
+                        countriesPerPage={countriesPerPage}
+                        allCountries={allCountries.length}
+                        paginado={paginado}
+                        pageController = {pageController} 
+                    />
+                </div>       
+
+                </div>
             </div>
+         </div>
         </>
     )
 };

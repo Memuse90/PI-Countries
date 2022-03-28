@@ -14,10 +14,12 @@ export default function Pagefile ({countriesPerPage, allCountries, paginado, pag
             <nav>
                 <ul  className={Pf.numbers}  >
                     {pageNumbers?.map(
-                        number => {return(
+                        number => {
+                            return(
                             <li key={number} className= {Pf.number}>
                                 <a className={Pf.snumber} href="#" onClick={() => {
-                                    return paginado(number), pageController(number)}}>{number}</a>
+                                    return paginado(number), pageController(number)}}>
+                                        <button className={Pf.btn}>{number}</button></a>
                             </li>
                         )}
                     )}
