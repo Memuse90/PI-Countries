@@ -17,19 +17,25 @@ export default function Detail (props){
 
     return (
         <div className={D.all}>
+            <nav className={D.nav}>
+                    <Link className={D.link} to='/home'>Return</Link>
+                </nav>
+            <div className={D.pri}>
             <h1>{country.name}</h1>
             <div>
                 <img src={country.flag} alt= 'Not found'/>
             </div>
-            <div className={D.pri}>
+            <div>
                 <h4>Continent: {country.continent}</h4>
                 <h4>Capital: {country.capital}</h4>
                 <h5>Subregion: {country.subregion}</h5>
-            </div>
-            <div>
                 <h5>Area: {country.area} m2</h5>
                 <h5>Population: {country.population}</h5>
             </div>
+            </div>
+            <div className={D.sep}>
+                <h5 className={D.link}>Activities</h5>
+            </div>    
             <div className={D.act}>
                 <ul>
                 {country.activities?.map((a) =>{
@@ -37,11 +43,11 @@ export default function Detail (props){
                                 key={a.id}
                                 name={a.name}
                                 duration={a.duration}
-                                dificulty={a.dificulty}/>
+                                dificulty={a.dificulty}
+                                season={a.season}/>
                 })}
                 </ul>
             </div>
-            <Link to='/home'>Return</Link>    
         </div>
     )
 };

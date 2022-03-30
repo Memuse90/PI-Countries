@@ -69,31 +69,27 @@ export default function Home () {
             </div>
             <div className={Hm.sortsandfilters}>
             <div className={Hm.sorts}>
-                    <div className={Hm.sSorts}>
-                        <label>Order alphabetically </label> 
+                    <div className={Hm.sSorts}> 
                         <Alphabetical handleAlphaSort={handleAlphaSort}/>
                     </div>
                     <div className={Hm.sSorts}>
-                        <label>Sort by population </label> 
                         <Population handlePopSort={handlePopSort}/>
                     </div>
                     <div className={Hm.filters}>
                         <div className={Hm.sfilter}>
-                            <label>Filter by tourist activity </label>
                             <ByActivity 
                             handleFilterByActivity={handleFilterByActivity}/> 
                         </div>
                         <div className={Hm.sfilter}>
-                            <label>Filter by continent</label>
                             <ByContinent handleFilterByContinent={handleFilterByContinent}/>
                         </div>
 
                         </div>
             </div>  
             </div>
-            <div className={Hm.space}>
+            {/* <div className={Hm.space}>
 
-            </div>
+            </div> */}
             <div className={Hm.pagefile}>
                 <Pagefile
                         countriesPerPage={countriesPerPage}

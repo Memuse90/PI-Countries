@@ -1,0 +1,15 @@
+.all{
+    border-radius: 5px;
+}
+
+.selec{
+    color:rgb(207, 201, 190);
+    border-radius: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    background-color:#203239 ;
+}
+
+.op{
+    font-family: 'Times New Roman', Times, serif;
+}

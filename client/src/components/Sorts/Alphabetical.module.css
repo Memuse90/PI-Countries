@@ -1,0 +1,11 @@
+.selec{
+    color:rgb(207, 201, 190);
+    border-radius: 5px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    background-color:#203239 ;
+}
+
+.op{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}

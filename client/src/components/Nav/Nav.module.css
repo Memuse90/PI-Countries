@@ -3,6 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     background-color: #678983;
+    height: 40px;
     width: 100%;
 }
 .links{
@@ -14,9 +15,10 @@
 }
 .NavLink{
     font-weight:bold;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: #181d31;
     text-decoration: none;
+    margin-left: 5px;
 }
 .NavLink:hover{
     color: #f0e9d2;
@@ -26,13 +28,15 @@
      align-items: center;
      width: 300px;
      justify-content: space-around;
-     font-family:  'Times New Roman', Times, serif;
+     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+     color: #203239;
  }
  .btn{
     background-color: #f0e9d2;
      border-radius: 10px;
-    font-family:  'Times New Roman', Times, serif;
+     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: bolder;
+    color:#203239;
  }
  .inp{
     border-radius: 5px;

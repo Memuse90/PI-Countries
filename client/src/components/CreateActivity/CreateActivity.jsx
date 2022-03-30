@@ -67,29 +67,38 @@ export default function CreateActivity () {
     
     return (
 
-        <div>
+        <div className={Cr.all}>
+        
+                <nav className={Cr.nav}>
+                    <Link className={Cr.link} to='/home'>Home</Link>
+                </nav>
+        
             <h1>Create Activity</h1>
-            <Link to='/home'>Home</Link>
-            <form onSubmit={(e) => handleSubmit(e)}>
-               <div> 
-                    <label>Name: </label>
-                    <input name='name' placeholder='Activity name' onClick={(e) => validateName(e)}/>
+            <form className={Cr.form} onSubmit={(e) => handleSubmit(e)}>
+               <div className={Cr.item}> 
+                    <div className={Cr.name}>
+                        <label>Name: </label>
+                        <br/>
+                        <input className={Cr.input}  name='name' placeholder='Activity name' onClick={(e) => validateName(e)}/>
+                    </div>
                     {!error? null:<span className={Cr.error}>{error}</span>}
                 </div>
-                <div> 
+                <div className={Cr.season} > 
                     <label>Dificulty: </label>
-                    <label>1</label>
-                    <input key={'1'}type={'radio'} name='dificulty' onClick={(e) => handleChange(e)} value={'1'}/>
-                    <label>2</label>
-                    <input key={'2'} type={'radio'} name='dificulty' onClick={(e) => handleChange(e)} value= {'2'}/>
-                    <label>3</label>
-                    <input key={'3'} type={'radio'} name='dificulty' onClick={(e) => handleChange(e)} value= {'3'}/>
-                    <label>4</label>
-                    <input key={'4'} type={'radio'} name='dificulty' onClick={(e) => handleChange(e)} value= {'4'}/>
-                    <label>5</label>
-                    <input key={'5'} type={'radio'} name='dificulty' onClick={(e) => handleChange(e)} value= {'5'}/>
+                    <div>
+                        <label>1</label>
+                        <input  key={'1'} type={'radio'} name='dificulty' onClick={(e) => handleChange(e)} value={'1'}/>
+                        <label>2</label>
+                        <input key={'2'} type={'radio'} name='dificulty' onClick={(e) => handleChange(e)} value= {'2'}/>
+                        <label>3</label>
+                        <input key={'3'} type={'radio'} name='dificulty' onClick={(e) => handleChange(e)} value= {'3'}/>
+                        <label>4</label>
+                        <input key={'4'} type={'radio'} name='dificulty' onClick={(e) => handleChange(e)} value= {'4'}/>
+                        <label>5</label>
+                        <input key={'5'} type={'radio'} name='dificulty' onClick={(e) => handleChange(e)} value= {'5'}/>
+                    </div>
                 </div>
-                <div>
+                <div className={Cr.season} >
                     <label>Season:</label>
                     <div>
                     <label>Spring</label>
@@ -102,31 +111,36 @@ export default function CreateActivity () {
                     <input key={'Winter'} type={'radio'} name='season' onClick={(e) => handleChange(e)} value= {'winter'}/>
                     </div>
                 </div>
-                <div>
+                <div className={Cr.item}>
                     <label>Duration: </label>
-                    <input type={'number'} min={1} name='duration' onChange={(e) => handleChange(e)}/>
+                    <input className={Cr.input}  type={'number'} min={1} name='duration' onChange={(e) => handleChange(e)}/>
                 </div>
-                    <label>Countries:</label>
-               <div> 
-                   <input type={'text'} name={'add country'} readOnly value={country}/>
-                   <select id={'countries'} onChange={(e) => completeCountry(e)}>
-                    {cNames?.map(n =>{
-                        return (
-                            <option  value={n} name={n} key={n}>{n}</option>
-                        )
-                        })}  
-                    </select>  
-                    <input type={'button'} value={'Add country'} onClick ={(e) => handleSelect(e)}/>
+                    
+               <div className={Cr.coun}> 
+                   {/* <input className={Cr.input}  type={'text'} name={'add country'} placeholder='Country' readOnly value={country}/> */}
+                   <div className={Cr.coun2}>
+                    <select className={Cr.input}  id={'countries'} onChange={(e) => completeCountry(e)}>
+                        {cNames?.map(n =>{
+                            return (
+                                <option  value={n} name={n} key={n}>{n}</option>
+                            )
+                            })}  
+                        </select>  
+                        <input className={Cr.btnadd} type={'button'} value={'Add country'} onClick ={(e) => handleSelect(e)}/>
+                   </div>
                 </div>
+                <div className={Cr.countries}>
                 {countries.length>0 && countries.map(c =>
                     <div key={c}>
                         <span>{c}</span>
-                        <button id={c} onClick={(e) => handleDelete(e)}>X</button>
+                        <button className={Cr.btndel} id={c} onClick={(e) => handleDelete(e)}>x</button>
                     </div>)}
-                <div>
-                    <button type='submit'>Create</button>
                 </div>
-                {response.success? <span>{response.success}</span> : <span>{response.error}</span>}
+                <div>
+                    <button className={Cr.btncreate} type='submit'>Create</button>
+                </div>
+                <br/>
+                {response.success? <span className={Cr.message}>{response.success}</span> : <span className={Cr.error}>{response.error}</span>}
                 
             </form>
         </div>

@@ -17,7 +17,7 @@
 
 .snumber{
     color: #181d31;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-decoration: none;
     font-size:medium;
     font-weight: bold;
@@ -28,7 +28,7 @@
 }
 
 .active{
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-decoration: none;
     font-size:medium;
     font-weight: bold;

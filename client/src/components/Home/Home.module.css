@@ -10,7 +10,7 @@
 .space{
     display: flex;
     justify-content: center;
-    height: 18px;
+    height: 10px;
     align-items: center;
     background-color: #203239;
 }
@@ -18,7 +18,7 @@
     display: flex;
     justify-content: center;
     height: 25px;
-    align-items: center;
+    align-items: flex-start;
     
 }
 .body{
@@ -37,14 +37,16 @@
 .sortsandfilters{
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 40px;
     width: 100%;
-    background-color: #f0e9d2;
+    background-color: #203239;
 }
 .sorts{
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    align-content: center;
+    align-items: center;
     width: auto;
     height: 50px;
     
@@ -56,8 +58,8 @@
     display: flex;
     width: 200px;
     height: 40px;
-    align-self: center;
-    flex-direction: column;
+    align-items: center;
+    flex-direction: row;
     
     border-radius: 10px;
     font-family: 'Times New Roman', Times, serif;
@@ -69,7 +71,6 @@
     flex-direction: row;
     justify-content: space-around;
     align-content: center ;
-    background-color: #f0e9d2;
     width: 30vw;
     border-radius: 10px;
     font-family: 'Times New Roman', Times, serif;

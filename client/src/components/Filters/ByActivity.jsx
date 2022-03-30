@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-
+import BA from './ByActivity.module.css'
 
 
 export default function ByActivity ({handleFilterByActivity}) {
@@ -8,11 +8,11 @@ export default function ByActivity ({handleFilterByActivity}) {
     const activities = useSelector(state => state.activities);
     return (
         <div>
-            <select onChange={(e) => handleFilterByActivity(e.target.value)}>
-                <option value={'All'} key={'0'}>All</option>
+            <select className={BA.selec} onChange={(e) => handleFilterByActivity(e.target.value)}>
+                <option className={BA.op} hidden={'true'} value={'All'} key={'0'} selected={'true'}>Filter by tourist activity</option>
                 {activities?.map(a => {
                     return (
-                        <option value={a.name} key={a.id}>{a.name}</option>
+                        <option className={BA.op} value={a.name} key={a.id}>{a.name}</option>
                     )
                 })}
             </select>
