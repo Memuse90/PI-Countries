@@ -9,7 +9,7 @@ export const SORT_ALPHABETICALLY = 'SORT_ALPHABETICALLY';
 export const SORT_BY_POPULATION = 'SORT_BY_POPULATION';
 export const GET_NAMES = 'GET_NAMES';
 export const CLEAN_ERROR= 'CLEAN_ERROR';
-
+export const RESET_DETAIL= 'RESET_DETAIL';
 export const getAllCountries = () => async dispatch => {
     return await fetch ('http://localhost:3001/countries/')
         .then( response => response.json())
@@ -99,5 +99,10 @@ export function createActivity (info) {
 export function cleanError(){
     return ({
         type: CLEAN_ERROR
+    })
+}
+export function resetDetail(){
+    return ({
+        type: RESET_DETAIL,
     })
 }

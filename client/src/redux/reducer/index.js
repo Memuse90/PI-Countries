@@ -1,4 +1,4 @@
-import { CLEAN_ERROR, CREATE_ACTIVITY, FILTER_BY_ACTIVITY,FILTER_BY_CONTINENT, GET_ALL_COUNTRIES, GET_COUNTRIES_BY_NAME, GET_COUNTRY_BY_CODE, GET_NAMES, SORT_ALPHABETICALLY, SORT_BY_POPULATION } from "../actions";
+import { CLEAN_ERROR, CREATE_ACTIVITY, FILTER_BY_ACTIVITY,FILTER_BY_CONTINENT, GET_ALL_COUNTRIES, GET_COUNTRIES_BY_NAME, GET_COUNTRY_BY_CODE, GET_NAMES, SORT_ALPHABETICALLY, SORT_BY_POPULATION, RESET_DETAIL } from "../actions";
 
 const initialState = {
     countries: [],
@@ -88,7 +88,12 @@ export default function rootReducer (state = initialState, action) {
             return {
                 ...state,
                 error: ''
-            }              
+            };
+        case RESET_DETAIL:
+            return {
+                ...state,
+                country: {}
+            }                  
         default: return {...state};    
     };
 };

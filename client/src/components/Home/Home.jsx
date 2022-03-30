@@ -1,7 +1,7 @@
 import React, {useState}from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCountries, filterByActivity, filterByContinent, getCountriesByName, sortAlphabetically, sortByPopulation } from "../../redux/actions";
+import { getAllCountries, filterByActivity, filterByContinent, getCountriesByName, sortAlphabetically, sortByPopulation, resetDetail } from "../../redux/actions";
 import {CountryCard} from '../Cards/CountryCard';
 import ByActivity from "../Filters/ByActivity";
 import ByContinent from "../Filters/ByContinent";
@@ -17,6 +17,7 @@ export default function Home () {
 
     useEffect(() => {
         dispatch(getAllCountries());
+        dispatch(resetDetail());
     }, [dispatch]);
 
     const allCountries = useSelector(state => state.countries);
@@ -35,7 +36,7 @@ export default function Home () {
 
     const pageController = (pageNumber => {
         if (pageNumber === 1) {
-           return setCountriesPerPage(9);
+           return setCountriesPerPage(10);
         } else {
             return setCountriesPerPage (10);
         }
@@ -99,6 +100,7 @@ export default function Home () {
                         allCountries={allCountries.length}
                         paginado={paginado}
                         pageController = {pageController} 
+                        currentPage={currentPage}
                     />
                 </div>
             <div className={Hm.body}>
@@ -120,7 +122,8 @@ export default function Home () {
                         countriesPerPage={countriesPerPage}
                         allCountries={allCountries.length}
                         paginado={paginado}
-                        pageController = {pageController} 
+                        pageController = {pageController}
+                        currentPage={currentPage} 
                     />
                 </div>       
 

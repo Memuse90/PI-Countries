@@ -16,7 +16,7 @@ export default function Detail (props){
 
 
     return (
-        <div>
+        <div className={D.all}>
             <h1>{country.name}</h1>
             <div>
                 <img src={country.flag} alt= 'Not found'/>

@@ -1,7 +1,7 @@
 .all{
     width: auto;
     height: 1100px;
-    background-color: whitesmoke;
+    background-image: url('../../../img/pexels-monstera-7412069.jpg');
 }
 
 .nav{
@@ -19,7 +19,7 @@
     justify-content: center;
     height: 25px;
     align-items: center;
-    background-color: whitesmoke;
+    
 }
 .body{
     display: flex;

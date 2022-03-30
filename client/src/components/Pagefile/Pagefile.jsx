@@ -1,7 +1,7 @@
 import React from "react";
 import Pf from "./Pagefile.module.css";
 
-export default function Pagefile ({countriesPerPage, allCountries, paginado, pageController}){
+export default function Pagefile ({countriesPerPage, allCountries, paginado, pageController, currentPage}){
 
     const pageNumbers = []; 
 
@@ -17,9 +17,9 @@ export default function Pagefile ({countriesPerPage, allCountries, paginado, pag
                         number => {
                             return(
                             <li key={number} className= {Pf.number}>
-                                <a className={Pf.snumber} href="#" onClick={() => {
+                                <a className={number === currentPage?Pf.active:Pf.snumber} href="#" onClick={() => {
                                     return paginado(number), pageController(number)}}>
-                                        <button className={Pf.btn}>{number}</button></a>
+                                        {number}</a>
                             </li>
                         )}
                     )}
